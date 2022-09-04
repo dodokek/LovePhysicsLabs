@@ -1,5 +1,30 @@
 import re
 
+
+def count_sig(array, mid):
+    sum_ = 0
+    for num in array:
+        sum_ += (num - mid)**2
+    return (sum_/len(array))**0.5
+
+
+def sig_percentage(array, sig, mid):
+    one_sig = 0
+    two_sig = 0
+    three_sig = 0
+    for num in array:
+        if abs(mid - num) < sig:
+            one_sig += 1
+        if abs(mid - num) < 2*sig:
+            two_sig += 1
+        if abs(mid - num) < 3*sig:
+            three_sig += 1
+    print("     В пределах 1 sigma ", one_sig/len(array))
+    print("     В пределах 2 sigma ", two_sig/len(array))
+    print("     В пределах 3 sigma ", three_sig/len(array))
+
+
+
 data = """ 21&15&22&16&16&25&15&21&25&23
            18&27&14&18&18&21&24&20&24&13
            20&17&21&28&18&15&15&18&13&21
@@ -47,6 +72,8 @@ print("")
 data_40 = {}
 data_int_40.sort()
 
+print("Вероятности для t = 40", data_40)
+
 for elem in data_int_40:
     if elem in data_40.keys():
         data_40[elem] += 1
@@ -54,15 +81,18 @@ for elem in data_int_40:
         data_40[elem] = 1
 
 for key in data_40.keys():
-    data_40[key] = data_40[key] / len(data_int_40)
+    data_40[key] = str(data_40[key] / len(data_int_40)) + " Число случаев: " + str(data_40[key])
+    print(key, data_40[key])
 
-print("Вероятности для t = 40", data_40)
+
+
+
 
 #Считаем для t=20 вероятности
 
 data_20 = {}
 data_int_20.sort()
-
+print("Вероятности для t = 20")
 for elem in data_int_20:
     if elem in data_20.keys():
         data_20[elem] += 1
@@ -70,6 +100,30 @@ for elem in data_int_20:
         data_20[elem] = 1
 
 for key in data_20.keys():
-    data_20[key] = data_20[key] / len(data_int_20)
+    data_20[key] = str(data_20[key] / len(data_int_20)) + " Число случаев: " + str(data_20[key])
+    print(key, data_20[key])
 
-print("Вероятности для t = 20", data_20)
+
+
+#Средние значения и среднеквадратичная ошибка отдельного измерения
+
+n20 = sum(data_int_20) / len(data_int_20)
+print("Среднее n для t=20 ", n20)
+
+n40 = sum(data_int_40) / len(data_int_40)
+print("Среднее n для t=40 ", n40)
+
+sig_20 = count_sig(data_int_20, n20)
+print("Стандартная ошибка измерения t = 20 ", sig_20)
+
+sig_40 = count_sig(data_int_40, n40)
+print("Стандартная ошибка измерения t = 40 ", sig_40)
+
+print("Данны о распределении значений t=20")
+sig_percentage(data_int_20, sig_20, n20)
+
+print("Данны о распределении значений t=40")
+sig_percentage(data_int_40, sig_40, n40)
+
+print("Стандартная ошибка отклонения n20", sig_20/len(data_int_20))
+print("Стандартная ошибка отклонения n40", sig_40/len(data_int_40))
