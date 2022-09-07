@@ -1,5 +1,5 @@
 import re
-
+import math
 
 def count_sig(array, mid):
     sum_ = 0
@@ -127,3 +127,4 @@ sig_percentage(data_int_40, sig_40, n40)
 
 print("Стандартная ошибка отклонения n20", sig_20/len(data_int_20))
 print("Стандартная ошибка отклонения n40", sig_40/len(data_int_40))
+
