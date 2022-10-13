@@ -38,7 +38,7 @@
 	\section{Аннотация}
 	
 	\textbf{Цель работы:}
-	Определить скорость полёта пули применяя законы сохранения и использую баллистические маятники
+	Определить скорость полёта пули применяя законы сохранения и используя баллистические маятники
 	
 	\noindent\textbf{Оборудование:}
 	Духовое ружьё, штатив, осветитель, оптическая система для измерения отклонений маятника, линейка, пули, электронные весы, баллистические маятники.
@@ -63,7 +63,7 @@
 	\]
 	\[
 	
-	    V^2=2gh \;\;\;\;\; h = L(1-cos \varphi ) = 2L^2 sin \frac{\varphi^2}{2} \;\;\;\;\;\;\; \varphi \approx \frac{\Delta x}{L} 
+	    V^2=2gh \;\;\;\;\; h = L(1-cos \varphi ) = 2L sin \frac{\varphi^2}{2} \;\;\;\;\;\;\; \varphi \approx \frac{\Delta x}{L} 
 	
     \]
 	Их этих уравнений получим конечную формулу для скорости пули	\begin{equation} \label{vel1}
@@ -141,25 +141,20 @@
 	
 	\noindent наша установка имела параметры: $M = (2925 \pm 5)$ г, и $L = (220,5 \pm 0,05)$ см.
 
-	Средняя скорость пули $u_\text{ср} = 148,4$ м/с, вычислим случайную и систематическую погрешности:
-	$
-	\varepsilon_M = 5$ г, \varepsilon_m =$ 0.05 г., $\varepsilon_{\Delta x} =$ 0,5 мм, $\varepsilon_L =$ 0.5 мм.   
+	Средняя скорость пули $u_\text{ср} = 148,4$ м/с, систематическую погрешность:
+	$\varepsilon_M = 5$ г, $\sigma_m =$ 0.05 г., $\sigma_{\Delta x} =$ 0,5 мм, $\sigma_L =$ 0.5 мм.   
 	
 	
 	
 	\[
-	\sigma_u^{\text{сист}} =u \sqrt{\varepsilon_M^2 + \varepsilon_m^2 + \varepsilon_{\Delta x}^2 + \left(\frac{}{2} \right)^2}\approx 3,1 \text{ }\dfrac{\text{м}}{\text{с}}
+	\sigma_{\text{стат}} =\sqrt{\sigma_M^2 + \sigma_m^2 + \sigma_{\Delta x}^2 + \frac{1}{2}(\sigma_{L})^{2}}\approx 3,1 \text{ }\dfrac{\text{м}}{\text{с}}
 	\]
-	
 	\[
-	\sigma_u^{\text{случ}} = \sqrt{ \frac{1}{n(n-1)} \sum_{i=1}^{n}(u_i - u_{\text{ср}})^2}\approx 2,9 \text{ }\dfrac{\text{м}}{\text{с}}
+	\sigma_{\text{случ}} =\sqrt{\sigma_M^ + \sigma_m^2 + \sigma_{\Delta x}^2 + \frac{1}{2}(\sigma_{L})^{2}} = \sigma_{\Delta x} \approx 0,41 \text{ }\dfrac{\text{м}}{\text{с}}
 	\]
-	
-	\[
-	\sigma_u =\sqrt{\sigma_{\text{сист}}^2 + \sigma_\text{случ}^2}\approx 4,2 \text{ }\dfrac{\text{м}}{\text{с}}
-	\]
-	
-	В итоге получаем скорость пули равную \underline{$u = (154,9 \pm 4,2)\text{, }\dfrac{\text{м}}{\text{с}}$}
+	\[\]
+	$\sigma_u = 3,12 мм$
+	В итоге получаем скорость пули равную \underline{$u = (154,9 \pm 3,12)\text{, }\dfrac{\text{м}}{\text{с}}$}
 	
 	\subsection{Крутильный маятник}
 	
@@ -188,15 +183,19 @@
 	
 	С помощью полученных периодов колебаний найдем $\sqrt{kI}$ по формуле \eqref{kl}:
 	
-	$$\sqrt{kI} \approx 138,18 \cdot 10^{-3} \text{ } \dfrac{\text{кг}\cdot\text{м}^2}{\text{c}} \;\;\;\;\;\; \sigma_{\sqrt{kI}} = \sqrt{kI} \cdot \sqrt{\varepsilon_{T_2^2-T_1^2}^2 + \left(2\varepsilon_{R^2}\right)^2 + \varepsilon_M^2 + \varepsilon_{T^2}^2} \approx 0,54 \cdot 10^{-3} \text{ } \dfrac{\text{кг}\cdot\text{м}^2}{\text{c}}$$
+	$$\sqrt{kI} \approx 138,18 \cdot 10^{-3} \text{ } \dfrac{\text{кг}\cdot\text{м}^2}{\text{c}} \;\;\;\;\;\; \sigma_{\sqrt{kI}} = \sqrt{kI} \cdot \sqrt{ \left(2\varepsilon_{R^2}\right)^2 + \varepsilon_M^2 + \varepsilon_{T^2}^2} \approx 0,54 \cdot 10^{-3} \text{ } \dfrac{\text{кг}\cdot\text{м}^2}{\text{c}}
+	$$
+	
 	
 	
 	\begin{equation}
-		\sigma_u^{\text{сист}} = u\cdot \sqrt{ \varepsilon_x^2+ \varepsilon_d^2+ \varepsilon_{\sqrt{kI}}^2 + \varepsilon_m^2 + \varepsilon_r^2 } \;\;\;\;\;\; \sigma_u^{\text{случ}} =  \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^{n}(u_i - \overline{u})^2} \;\;\;\;\;\;
-		\sigma_u = \sqrt{\sigma_{\text{случ}}^2 + \sigma_\text{сист}^2}
+		\sigma_{u}^{сист} = u\cdot \sqrt{ \varepsilon_x^2+ \varepsilon_d^2+ \varepsilon_{\sqrt{kI}}^2 + \varepsilon_m^2 + \varepsilon_r^2 } \;\;\;\;\;\;  \;\;\;\;\;\;
+		
+		
 	\end{equation}
-	
-	Тогда средняя скорость $u_\text{ср} = (130,95 \pm 1,44)\text{ }\frac{\text{м}}{\text{с}} $
+	$\sigma_{u}^{\text{случ}} = 0,31 см$
+		$\sigma_{u} = 1,47$
+	Тогда средняя скорость $u_\text{ср} = (130,95 \pm 1,47)\text{ }\frac{\text{м}}{\text{с}} $
 	
 	\section{Обсуждение результатов}
 	Результаты измерений можно считать вполне точными, так как первоначальные измерения производились сразу же после выстрела, поэтому влияние затухания было минимально. Также, перед каждым выстрелом маятник полностью останавливали, что давала еще большую точность. В подтверждение этому, скорости, вычисленные при помощи экспериментальных данных практически совпали со скоростями на спидометре.
